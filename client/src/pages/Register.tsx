@@ -73,7 +73,7 @@ export default function Register() {
 }
 
 
-const styles = {
+const styles: Record<string, React.CSSProperties> = {
   body: {
     margin: 0,
     fontFamily: "system-ui, sans-serif",

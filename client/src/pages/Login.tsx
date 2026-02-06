@@ -20,35 +20,64 @@ export default function Login() {
     }
   };
 
+  const containerStyle: React.CSSProperties = {
+    maxWidth: "420px",
+    margin: "60px auto",
+    padding: "14px",
+    background: "#fff",
+    borderRadius: 14,
+    boxShadow: "0 6px 18px rgba(0,0,0,0.08)",
+  };
+
+  const inputStyle: React.CSSProperties = {
+    width: "100%",
+    padding: "10px",
+    marginBottom: "10px",
+    borderRadius: "8px",
+    border: "1px solid #ddd",
+    fontSize: "14px",
+  };
+
+  const buttonStyle: React.CSSProperties = {
+    width: "100%",
+    padding: "12px",
+    borderRadius: "10px",
+    border: "none",
+    cursor: "pointer",
+    background: "#3F5EF8",
+    color: "#fff",
+    marginTop: "8px",
+  };
+
   return (
-    <div className="container">
-      <h2>Login</h2>
+    <div style={containerStyle}>
+      <h2 style={{ marginTop: 0 }}>Login</h2>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       <input
-        className="input"
+        style={inputStyle}
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
 
       <input
-        className="input"
+        style={inputStyle}
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
 
-      <button className="btn btn-primary" onClick={handleLogin}>
+      <button style={buttonStyle} onClick={handleLogin}>
         Login
       </button>
 
-      <p>
+      <p style={{ marginTop: 12 }}>
         Don’t have an account?{" "}
         <span
-          style={{ color: "#3f5ef8", cursor: "pointer" }}
+          style={{ color: "#3F5EF8", cursor: "pointer" }}
           onClick={() => (window.location.href = "/register")}
         >
           Register
@@ -57,42 +86,3 @@ export default function Login() {
     </div>
   );
 }
-
-
-const styles = {
-  body: {
-    margin: 0,
-    fontFamily: "system-ui, sans-serif",
-    background: "#f4f6fb",
-    minHeight: "100vh",
-    padding: "16px",
-  },
-  container: {
-    maxWidth: "420px",
-    margin: "40px auto",
-  },
-  card: {
-    background: "#fff",
-    borderRadius: "14px",
-    padding: "14px",
-    boxShadow: "0 6px 18px rgba(0,0,0,0.08)",
-  },
-  input: {
-    width: "100%",
-    padding: "10px",
-    marginBottom: "10px",
-    borderRadius: "8px",
-    border: "1px solid #ddd",
-    fontSize: "14px",
-  },
-  btn: {
-    width: "100%",
-    padding: "12px",
-    borderRadius: "10px",
-    border: "none",
-    cursor: "pointer",
-    background: "#3f5ef8",
-    color: "#fff",
-    marginTop: "8px",
-  },
-};

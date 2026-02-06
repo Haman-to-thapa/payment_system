@@ -37,14 +37,41 @@ export default function AdminPayments() {
     fetchPayments();
   };
 
+  /* INLINE STYLES */
+  const containerStyle: React.CSSProperties = {
+    maxWidth: "520px",
+    margin: "20px auto",
+    padding: "0 16px",
+  };
+
+  const inputStyle: React.CSSProperties = {
+    width: "100%",
+    padding: "10px",
+    marginBottom: "10px",
+    borderRadius: "8px",
+    border: "1px solid #ddd",
+    fontSize: "14px",
+  };
+
+  const buttonStyle: React.CSSProperties = {
+    width: "100%",
+    padding: "12px",
+    borderRadius: "10px",
+    border: "none",
+    cursor: "pointer",
+    background: "#3F5EF8",
+    color: "#fff",
+    marginBottom: "12px",
+  };
+
   return (
     <>
       <Header title="Admin – All Payments" />
 
-      <div className="container">
+      <div style={containerStyle}>
         {/* FILTERS */}
         <select
-          className="input"
+          style={inputStyle}
           value={paymentType}
           onChange={(e) => setPaymentType(e.target.value)}
         >
@@ -57,13 +84,13 @@ export default function AdminPayments() {
         </select>
 
         <input
-          className="input"
+          style={inputStyle}
           placeholder="Search by bank / UPI / email / IFSC..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <button className="btn btn-primary" onClick={fetchPayments}>
+        <button style={buttonStyle} onClick={fetchPayments}>
           Apply Filters
         </button>
 
@@ -83,42 +110,3 @@ export default function AdminPayments() {
     </>
   );
 }
-
-
-const styles = {
-  body: {
-    margin: 0,
-    fontFamily: "system-ui, sans-serif",
-    background: "#f4f6fb",
-    minHeight: "100vh",
-    padding: "16px",
-  },
-  container: {
-    maxWidth: "420px",
-    margin: "40px auto",
-  },
-  card: {
-    background: "#fff",
-    borderRadius: "14px",
-    padding: "14px",
-    boxShadow: "0 6px 18px rgba(0,0,0,0.08)",
-  },
-  input: {
-    width: "100%",
-    padding: "10px",
-    marginBottom: "10px",
-    borderRadius: "8px",
-    border: "1px solid #ddd",
-    fontSize: "14px",
-  },
-  btn: {
-    width: "100%",
-    padding: "12px",
-    borderRadius: "10px",
-    border: "none",
-    cursor: "pointer",
-    background: "#3f5ef8",
-    color: "#fff",
-    marginTop: "8px",
-  },
-};

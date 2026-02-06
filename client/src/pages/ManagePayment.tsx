@@ -14,7 +14,6 @@ export default function ManagePayments() {
 
   const [editingId, setEditingId] = useState<string | null>(null);
 
-
   const fetchPayments = async () => {
     const res = await api.get("/payments");
     setPayments(res.data);
@@ -40,18 +39,20 @@ export default function ManagePayments() {
     fetchPayments();
   };
 
-
   const deletePayment = async (id?: string) => {
     await api.delete(`/payments/${id}`);
     fetchPayments();
   };
 
-
-
+  /* INLINE STYLES */
+  const containerStyle: React.CSSProperties = {
+    maxWidth: "520px",
+    margin: "20px auto",
+    padding: "0 16px",
+  };
 
   return (
-    <div className="container">
-
+    <div style={containerStyle}>
       <Header title="Manage Payments" />
 
       <PaymentForm data={form} setData={setForm} onSubmit={savePayment} />
@@ -66,47 +67,7 @@ export default function ManagePayments() {
           }}
           onDelete={() => deletePayment(p._id)}
         />
-
       ))}
     </div>
   );
 }
-
-
-const styles = {
-  body: {
-    margin: 0,
-    fontFamily: "system-ui, sans-serif",
-    background: "#f4f6fb",
-    minHeight: "100vh",
-    padding: "16px",
-  },
-  container: {
-    maxWidth: "420px",
-    margin: "40px auto",
-  },
-  card: {
-    background: "#fff",
-    borderRadius: "14px",
-    padding: "14px",
-    boxShadow: "0 6px 18px rgba(0,0,0,0.08)",
-  },
-  input: {
-    width: "100%",
-    padding: "10px",
-    marginBottom: "10px",
-    borderRadius: "8px",
-    border: "1px solid #ddd",
-    fontSize: "14px",
-  },
-  btn: {
-    width: "100%",
-    padding: "12px",
-    borderRadius: "10px",
-    border: "none",
-    cursor: "pointer",
-    background: "#3f5ef8",
-    color: "#fff",
-    marginTop: "8px",
-  },
-};
