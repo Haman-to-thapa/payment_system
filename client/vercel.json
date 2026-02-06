@@ -2,9 +2,7 @@
   "routes": [
     {
       "src": "/assets/(.*)",
-      "headers": {
-        "Content-Type": "application/javascript"
-      }
+      "dest": "/assets/$1"
     },
     {
       "src": "/favicon.ico",
