@@ -44,3 +44,42 @@ export default function Header({ title }: HeaderProps) {
     </div>
   );
 }
+
+
+const styles = {
+  body: {
+    margin: 0,
+    fontFamily: "system-ui, sans-serif",
+    background: "#f4f6fb",
+    minHeight: "100vh",
+    padding: "16px",
+  },
+  container: {
+    maxWidth: "420px",
+    margin: "40px auto",
+  },
+  card: {
+    background: "#fff",
+    borderRadius: "14px",
+    padding: "14px",
+    boxShadow: "0 6px 18px rgba(0,0,0,0.08)",
+  },
+  input: {
+    width: "100%",
+    padding: "10px",
+    marginBottom: "10px",
+    borderRadius: "8px",
+    border: "1px solid #ddd",
+    fontSize: "14px",
+  },
+  btn: {
+    width: "100%",
+    padding: "12px",
+    borderRadius: "10px",
+    border: "none",
+    cursor: "pointer",
+    background: "#3f5ef8",
+    color: "#fff",
+    marginTop: "8px",
+  },
+};
